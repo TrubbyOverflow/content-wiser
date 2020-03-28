@@ -14,7 +14,11 @@ services:
       - NEO4J_dbms_shell_enabled=true
 
   api:
-    build: ./api
+    build:
+      context: ./api
+      dockerfile: ./compose/development/Dockerfile
+    volumes:
+      - ./api:/app
     ports:
       - 4001:4001
     environment:
