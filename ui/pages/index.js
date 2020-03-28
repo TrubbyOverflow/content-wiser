@@ -1,64 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 import withData from '../lib/apollo';
-
+import { useQuery } from "@apollo/react-hooks";
+import { gql } from "apollo-boost";
 import List from './list.js';
 import Article from './article.js';
 
 import styles from './Index.module.css';
 
-class Index extends React.Component {
-    constructor(props) {
-        super(props);
+const Index = () => {
+    const [showArticleId, setShowArticleId] = useState(0);
 
-        this.state = {
-            showArticleId: 0
+    const GET_ARTICLES = gql`
+    {
+        Article {
+            id
+            title
+            url
         }
+    }`
 
-        this.handleShowArticleChanged = this.handleShowArticleChanged.bind(this);
+    const handleShowArticleChanged = function(showArticleId) {
+        setShowArticleId(showArticleId);
     }
 
-    handleShowArticleChanged(showArticleId) {
-        this.setState({ showArticleId: showArticleId });
-    }
+    const articles = [
+        {
+            id: 0,
+            name: 'Artigo 1',
+            content: 'Lorem Ipsum é simplesmente uma simulação d'
+        }, {
+            id: 1,
+            name: 'Lorem',
+            content: 'Lorem Ipsum'
+        }, {
+            id: 2,
+            name: 'Novo artigo',
+            content: 'novo artigo'
+        }
+    ];
 
-    render() {
-        const articles = [
-            {
-                id: 0,
-                name: 'Artigo 1',
-                content: 'Lorem Ipsum é simplesmente uma simulação d'
-            }, {
-                id: 1,
-                name: 'Lorem',
-                content: 'Lorem Ipsum'
-            }, {
-                id: 2,
-                name: 'Novo artigo',
-                content: 'novo artigo'
-            }
-        ];
+    const showingArticle = articles.find(a => a.id === showArticleId);
 
-        const showArticleId = this.state.showArticleId;
-        const showingArticle = articles.find(a => a.id === showArticleId);
+    return (
+        <div className={styles.wrapper}>
 
-        return (
-            <div className={styles.wrapper}>
-
-                <div className={styles.sidebar}>
-                    <List articleList={articles} handleShowArticleChanged={this.handleShowArticleChanged}></List>
-                </div>
-                
-                <div className={styles.main}>
-                    <Article selected={showingArticle}></Article>
-                </div>
-
-                <div className={styles.footer}>
-                    Content Wiser Project
-                </div>
-
+            <div className={styles.sidebar}>
+                <List articleList={articles} handleShowArticleChanged={handleShowArticleChanged}></List>
             </div>
-        );
-    }
+            
+            <div className={styles.main}>
+                <Article selected={showingArticle}></Article>
+            </div>
+
+            <div className={styles.footer}>
+                Content Wiser Project
+            </div>
+
+        </div>
+    );
+    
 
 }
 
