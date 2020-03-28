@@ -1,3 +1,7 @@
+.cardSize {
+    margin: 1rem;
+}
+
 .card {
     margin: 1rem;
     flex-basis: 45%;

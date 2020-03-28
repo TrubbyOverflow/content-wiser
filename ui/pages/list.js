@@ -1,7 +1,8 @@
 import React from 'react';
 import withData from '../lib/apollo';
 
-import styles from './Home.module.css';
+import styles from './list.module.css';
+import Search from './search.js';
 
 
 class List extends React.Component {
@@ -15,6 +16,11 @@ class List extends React.Component {
 
         return (
             <div>
+                
+                <div className={styles.cardSize}>
+                    <Search></Search>
+                </div>
+                
                 <div className={styles.card}>
                     <p>Artigo 1</p>
                 </div>
