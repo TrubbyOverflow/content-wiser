@@ -18,5 +18,5 @@ For a better visualization of the entire data base, access http://localhost:7474
 To use the seed data, run:
 
 ```
-docker-compose run api npm run seedDb
+docker-compose exec api yarn seedDb
 ```
