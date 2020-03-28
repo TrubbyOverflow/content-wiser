@@ -15,7 +15,7 @@ Usefuls URLs:
 ## Database
 For a better visualization of the entire data base, access http://localhost:7474/browser/ (user: neo4j, password: letmein).
 
-To use the seed data, run:
+To use the seed data, run the following command while your project is up:
 
 ```
 docker-compose exec api yarn seedDb
