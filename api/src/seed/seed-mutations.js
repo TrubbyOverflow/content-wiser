@@ -63,12 +63,12 @@ export default /* GraphQL */ `
       url
       title
     }
-    ra1: AddUserReadedArticles(from: {id: "1"}, to: { title: "Google Reader morreu devido à falta de desenvolvedores interessados nele" }) {
+    ra1: AddUserReadArticles(from: {id: "1"}, to: { title: "Google Reader morreu devido à falta de desenvolvedores interessados nele" }) {
       from {
         id
       }
     }
-    ra2: AddUserReadedArticles(from: {id: "1"}, to: { title: "Feedly sofre ataque DDoS de grupo criminoso" }) {
+    ra2: AddUserReadArticles(from: {id: "1"}, to: { title: "Feedly sofre ataque DDoS de grupo criminoso" }) {
       from {
         id
       }

@@ -4,7 +4,7 @@ type User {
   username: String
   email: String
   password: String
-  readedArticles: [Article] @relation(name: "READED", direction: "OUT")
+  readArticles: [Article] @relation(name: "READ", direction: "OUT")
   followingRSS: [Rss] @relation(name: "FOLLOWING", direction: "OUT")
   likedArticles: [Article] @relation(name: "LIKED", direction: "OUT")
   dislikedArticles: [Article] @relation(name: "DISLIKED", direction: "OUT")
@@ -22,7 +22,7 @@ type User {
 type Article {
   title: String
   url: String
-  readedBy: [User] @relation(name: "READED", direction: "IN")
+  readBy: [User] @relation(name: "READ", direction: "IN")
   likedBy: [User] @relation(name: "LIKED", direction: "IN")
   dislikedBy: [User] @relation(name: "DISLIKED", direction: "IN")
   wrotedBy: [Rss] @relation(name: "WROTE", direction: "IN")
