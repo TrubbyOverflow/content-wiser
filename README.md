@@ -7,5 +7,16 @@ To start the development version, we recommend [Docker](https://docs.docker.com/
 docker-compose up
 ```
 
-## Data base
+Usefuls URLs:
+- Frontend: http://localhost
+- GraphQL Playground: http://localhost:4001/graphql
+- Neo4J query interface: http://localhost:7474/browser/
+
+## Database
 For a better visualization of the entire data base, access http://localhost:7474/browser/ (user: neo4j, password: letmein).
+
+To use the seed data, run:
+
+```
+docker-compose run api npm run seedDb
+```
