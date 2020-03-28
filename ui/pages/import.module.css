@@ -1,0 +1,31 @@
+#import_page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.feed_form {
+  display: flex;
+  flex-flow: column;
+  padding: 3rem;
+  background-color: rgb(212, 212, 212);
+  border-radius: 10px;
+}
+
+.text {
+  font-size: 2rem;
+}
+
+.feed_input {
+  border: 0;
+  margin: 1rem 0;
+  padding: .5rem;
+}
+
+.feed_button {
+  font-size: 1.5rem;
+  border: 0;
+  background-color: #E5F6CE;
+}
