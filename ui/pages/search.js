@@ -4,13 +4,10 @@ import withData from '../lib/apollo';
 class Search extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            search: ''
-        };
     }
 
-    handleChange(e, type) {
-        this.setState({ [type]: e.target.value });
+    onSearchChange(e) {
+        this.props.handleSearchChange(e.target.value);
     }
 
     render() {
@@ -20,7 +17,7 @@ class Search extends React.Component {
                 <form onSubmit={this.handleSearch}>
                     <div>
                         <input type="text" style={{ width: '70%'}}
-                            onChange={ (e) => this.handleChange(e, 'search') }>
+                            onChange={ (e) => this.onSearchChange(e) }>
                         </input>
                         <button type="submit" style={{ width: '30%'}}>Pesquisar</button>
                     </div>
