@@ -6,3 +6,6 @@ To start the development version, we recommend [Docker](https://docs.docker.com/
 ```
 docker-compose up
 ```
+
+## Data base
+For a better visualization of the entire data base, access http://localhost:7474/browser/ (user: neo4j, password: letmein).
