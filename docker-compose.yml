@@ -23,20 +23,23 @@ services:
       - NEO4J_PASSWORD=letmein
       - GRAPHQL_LISTEN_PORT=4001
       - GRAPHQL_URI=http://api:4001/graphql
-
     links:
     - neo4j
     depends_on:
     - neo4j
 
-  # ui:
-  #   build: ./ui-react
-  #   ports:
-  #     - 3000:3000
-  #   environment:
-  #     - REACT_APP_GRAPHQL_URI=/graphql
-  #     - PROXY=http://api:4001/graphql
-  #   links:
-  #   - api
-  #   depends_on:
-  #   - api
+  ui:
+    build:
+      context: ./ui
+      dockerfile: ./compose/development/Dockerfile
+    volumes:
+      - ./ui:/app
+    ports:
+      - 80:80
+    environment:
+      - REACT_APP_GRAPHQL_URI=/graphql
+      - PROXY=http://api:4001/graphql
+    links:
+    - api
+    depends_on:
+    - api
