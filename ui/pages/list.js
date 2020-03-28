@@ -13,6 +13,13 @@ class List extends React.Component {
     }
 
     render() {
+        const articleList = this.props.articleList;
+
+        const articleNames = articleList.map(a => (
+            <div className={styles.card}>
+                <p>{a.name}</p>
+            </div>
+        ));
 
         return (
             <div>
@@ -21,15 +28,7 @@ class List extends React.Component {
                     <Search></Search>
                 </div>
                 
-                <div className={styles.card}>
-                    <p>Artigo 1</p>
-                </div>
-                <div className={styles.card}>
-                    <p>Artigo 2</p>
-                </div>
-                <div className={styles.card}>
-                    <p>Artigo 3</p>
-                </div>
+                {articleNames}
             </div>
         );
     }

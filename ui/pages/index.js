@@ -13,15 +13,28 @@ class Index extends React.Component {
 
     render() {
 
+        const articles = [
+            {
+                name: 'Artigo 1',
+                content: 'Lorem Ipsum é simplesmente uma simulação d'
+            }, {
+                name: 'Lorem',
+                content: 'Lorem Ipsum'
+            }, {
+                name: 'Novo artigo',
+                content: 'novo artigo'
+            }
+        ];
+
         return (
             <div className={styles.wrapper}>
 
                 <div className={styles.sidebar}>
-                    <List></List>
+                    <List articleList={articles}></List>
                 </div>
                 
                 <div className={styles.main}>
-                    <Article></Article>
+                    <Article selected={articles[0]}></Article>
                 </div>
 
                 <div className={styles.footer}>
