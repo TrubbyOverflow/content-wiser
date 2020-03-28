@@ -1,6 +1,7 @@
 import React from 'react';
+import withData from '../lib/apollo'
 
-class Login extends React.Component { 
+class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -25,7 +26,7 @@ class Login extends React.Component {
             return;
         }
 
-        
+
     }
 
     onUsernameChanged(e) {
@@ -42,7 +43,7 @@ class Login extends React.Component {
             password,
             error,
         } = this.state;
-        
+
         return (
             <div>
                 <form onSubmit={this.handleSignIn}>
@@ -57,7 +58,7 @@ class Login extends React.Component {
                         <label>Senha</label>
                         <input type="password"
                             value={password}
-                            onChange={this.onPasswordChanged}>    
+                            onChange={this.onPasswordChanged}>
                         </input>
                     </div>
                     <div>
@@ -70,4 +71,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login
+export default withData(Login)

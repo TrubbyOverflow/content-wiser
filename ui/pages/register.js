@@ -1,6 +1,7 @@
 import React from 'react';
+import withData from '../lib/apollo'
 
-class Login extends React.Component { 
+class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -30,7 +31,7 @@ class Login extends React.Component {
         const {
             error
         } = this.state;
-        
+
         return (
             <div>
                 <form onSubmit={this.handleSignIn}>
