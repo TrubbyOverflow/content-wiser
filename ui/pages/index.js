@@ -8,7 +8,7 @@ import Article from './article.js';
 import styles from './Index.module.css';
 
 const Index = () => {
-    const [showArticleId, setShowArticleId] = useState(0);
+    let [showArticleId, setShowArticleId] = useState(0);
 
     const GET_ARTICLES = gql`
     {
@@ -23,29 +23,25 @@ const Index = () => {
         setShowArticleId(showArticleId);
     }
 
-    const articles = [
-        {
-            id: 0,
-            name: 'Artigo 1',
-            content: 'Lorem Ipsum é simplesmente uma simulação d'
-        }, {
-            id: 1,
-            name: 'Lorem',
-            content: 'Lorem Ipsum'
-        }, {
-            id: 2,
-            name: 'Novo artigo',
-            content: 'novo artigo'
-        }
-    ];
+    const { loading, error, data, fetchMore } = useQuery(GET_ARTICLES, {
+        notifyOnNetworkStatusChange: true
+    });
 
-    const showingArticle = articles.find(a => a.id === showArticleId);
+    if(loading || error) {
+        return <div></div>
+    }
+
+    if (showArticleId === 0) {
+        showArticleId = data.Article[0].id;
+    }
+
+    const showingArticle = data.Article.find(a => a.id === showArticleId);
 
     return (
         <div className={styles.wrapper}>
 
             <div className={styles.sidebar}>
-                <List articleList={articles} handleShowArticleChanged={handleShowArticleChanged}></List>
+                <List articleList={data.Article} handleShowArticleChanged={handleShowArticleChanged}></List>
             </div>
             
             <div className={styles.main}>
@@ -58,8 +54,6 @@ const Index = () => {
 
         </div>
     );
-    
-
 }
 
 export default withData(Index)

@@ -17,10 +17,10 @@ function List(props) {
     }
 
     const articleNames = props.articleList
-        .filter(a => a.name.includes(textSearched) || textSearched === '')
+        .filter(a => a.title.includes(textSearched) || textSearched === '')
         .map(a => (
             <div key={a.id} className={styles.card} onClick={() => onArticleClicked(a.id)}>
-                <p>{a.name}</p>
+                <p>{a.title}</p>
             </div>)
         );
 

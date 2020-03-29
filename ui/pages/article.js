@@ -6,9 +6,9 @@ function Article(props) {
 
     return (
         <div>
-            <h1>{selected.name}</h1>
+            <h1>{selected.title}</h1>
             <p>
-            {selected.content}
+            {selected.url}
             </p>
         </div>
     );
