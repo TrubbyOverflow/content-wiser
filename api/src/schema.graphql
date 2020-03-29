@@ -11,6 +11,7 @@ type User {
 }
 
 type Article {
+  id: ID!
   title: String
   url: String
   readBy: [User] @relation(name: "READ", direction: "IN")
@@ -20,6 +21,7 @@ type Article {
 }
 
 type Rss {
+  id: ID!
   page: String
   description: String
   date: String,

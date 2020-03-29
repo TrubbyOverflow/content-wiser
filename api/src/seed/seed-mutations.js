@@ -52,50 +52,53 @@ export default /* GraphQL */ `
       email
       password
     }
-    rss1: CreateRss(page: "https://www.tecmundo.com.br/rss"){
+    rss1: CreateRss(id: "1", page: "https://www.tecmundo.com.br/rss"){
+      id
       page
     }
-    article1: CreateArticle(url: "https://www.tecmundo.com.br/google/42301-google-reader-devido-a-falta-de-desenvolvedores-interessados-nele.htm", title: "Google Reader morreu devido à falta de desenvolvedores interessados nele") {
+    article1: CreateArticle(id: "1", url: "https://www.tecmundo.com.br/google/42301-google-reader-devido-a-falta-de-desenvolvedores-interessados-nele.htm", title: "Google Reader morreu devido à falta de desenvolvedores interessados nele") {
+      id
       url
       title
     }
-    article2: CreateArticle(url: "https://www.https://www.tecmundo.com.br/rss/57795-feedly-sofre-ataque-ddos-grupo-criminoso.htm", title: "Feedly sofre ataque DDoS de grupo criminoso") {
+    article2: CreateArticle(id: "2", url: "https://www.https://www.tecmundo.com.br/rss/57795-feedly-sofre-ataque-ddos-grupo-criminoso.htm", title: "Feedly sofre ataque DDoS de grupo criminoso") {
+      id
       url
       title
     }
-    ra1: AddUserReadArticles(from: {id: "1"}, to: { title: "Google Reader morreu devido à falta de desenvolvedores interessados nele" }) {
+    ra1: AddUserReadArticles(from: {id: "1"}, to: { id: "1" }) {
       from {
         id
       }
     }
-    ra2: AddUserReadArticles(from: {id: "1"}, to: { title: "Feedly sofre ataque DDoS de grupo criminoso" }) {
+    ra2: AddUserReadArticles(from: {id: "1"}, to: { id: "2" }) {
       from {
         id
       }
     }
-    la1: AddUserLikedArticles(from: {id: "1"}, to: { title: "Google Reader morreu devido à falta de desenvolvedores interessados nele" }) {
+    la1: AddUserLikedArticles(from: {id: "1"}, to: { id: "1" }) {
       from {
         id
       }
     }
-    da1: AddUserDislikedArticles(from: {id: "1"}, to: { title: "Feedly sofre ataque DDoS de grupo criminoso" }) {
+    da1: AddUserDislikedArticles(from: {id: "1"}, to: { id: "2" }) {
       from {
         id
       }
     }
-    ufr1: AddUserFollowingRSS(from: {id: "1"}, to: {page: "https://www.tecmundo.com.br/rss"}){
+    ufr1: AddUserFollowingRSS(from: {id: "1"}, to: {id: "1"}){
       from {
         id
       }
     }
-    arw1: AddRssWrote(from: {page: "https://www.tecmundo.com.br/rss"}, to: {title: "Feedly sofre ataque DDoS de grupo criminoso" }){
+    arw1: AddRssWrote(from: {id: "1"}, to: {id: "2" }){
       from {
-        page
+        id
       }
     }
-    arw2: AddRssWrote(from: {page: "https://www.tecmundo.com.br/rss"}, to: {title: "Google Reader morreu devido à falta de desenvolvedores interessados nele" }){
+    arw2: AddRssWrote(from: {id: "1"}, to: {id: "1" }){
       from {
-        page
+        id
       }
     }
   }
